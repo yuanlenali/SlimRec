@@ -19,7 +19,7 @@ EXPOSE 8501
 COPY requirements.txt /tmp
 
 # copy code over
-COPY app_small.py /tmp
+COPY app.py /tmp
 COPY data /tmp/data
 COPY model /tmp/model
 COPY metrics /tmp/metrics

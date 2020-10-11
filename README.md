@@ -15,7 +15,7 @@ The dataset distribution follows long tail distribution. The analysis can be fou
 ### Data Preprocessing
 Please run the jupyter notebook in data_preprocessing folder, to generate processed dataset for training and testing. The processed dataset is in data folder.
 ### Movie Images
-Pls run utils/crawl_image.py to download all movie images. They will be used for the web application.
+Movie Images will be used during inference. To accelerate the web application, please run utils/crawl_image.py to download all movie images in advance. Otherwise, it is still ok to download the necessary movie images when during inference.
 
 ## Web Application
 The inference is shown with streamlit frontend. To run the demo, 

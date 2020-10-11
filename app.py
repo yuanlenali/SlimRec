@@ -7,6 +7,7 @@ from PIL import Image
 
 from model.two_tower import TwoTower
 import metrics.recall_k as metrics
+import utils.crawl_image as download
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 NUM_MOVIE_RECOMMENDED = 5
@@ -103,6 +104,10 @@ watched_movie = topkRate_have_watched(user_id, NUM_MOVIE_RECOMMENDED)
 watched_movie_image = ["tt" + str(movie_watched[1]) + ".jpeg" for (movie_watched, rating) in watched_movie]
 watched_movie_names = [movie_watched[0] for (movie_watched, rating) in watched_movie]
 st.markdown("<div><span class='sec_title'>Watch again your favorite movies:</span></div>", unsafe_allow_html=True)
+for m in watched_movie_image:
+    if not os.path.exists("data/images/"+m):
+        imdb = m[:-5]
+        download.tmdb_posters(imdb, "data/images")
 images = [Image.open("data/images/"+m) for m in watched_movie_image]
 image_iterator = paginator("", images)
 indices_on_page, images_on_page = map(list, zip(*image_iterator))
@@ -131,6 +136,9 @@ cnt = 0
 for m in recommended_movie:
     if cnt >= NUM_MOVIE_RECOMMENDED:
         break
+    if not os.path.exists("data/images/"+m[1]):
+        imdb = m[1][:-5]
+        download.tmdb_posters(imdb, "data/images")
     if os.path.exists("data/images/"+m[1]):
         images.append(Image.open("data/images/"+m[1]))
         movie_name.append(m[0])
