@@ -20,12 +20,15 @@ COPY requirements.txt /tmp
 
 # copy code over
 COPY app.py /tmp
+COPY style.css /tmp
+COPY data_preprocessing /tmp/data_preprocessing
 COPY data /tmp/data
 COPY model /tmp/model
 COPY metrics /tmp/metrics
 COPY checkpoints /tmp/checkpoints
+COPY utils /tmp/utils
 WORKDIR /tmp
 
 # run app
 RUN pip install -r requirements.txt
-CMD ["streamlit", "run",  "app_small.py"]
+CMD ["streamlit", "run",  "app.py"]
