@@ -1,0 +1,3 @@
+# Ignore these directories
+__pychache__
+data/images
