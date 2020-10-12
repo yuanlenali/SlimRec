@@ -9,7 +9,7 @@ SlimRec provides two different ways to compress NN based recommendation models, 
 
 ## Data
 ### Dataset
-The dataset used is movie Tweeting Dataset, which is also used in recsys 2014. The raw dataset can be found in raw_data folder
+The dataset used is movie Tweeting Dataset, which is also used in recsys challenge 2014. The raw dataset can be found in raw_data folder
 ### Data Distribution
 The dataset distribution follows long tail distribution. The analysis can be found in jupyter notebooks in analysis folder.
 ### Data Preprocessing
