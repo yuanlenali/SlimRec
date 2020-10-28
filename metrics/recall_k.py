@@ -34,7 +34,8 @@ def rate(model, user_idx, movie_idx, cat_idx):
 def topkRate_have_watched(user_idx, k):
     topk_have_watched = get_user_ratings('data/train_data_sorted_vocab_id.dat', user_idx, k)
     m_new_vocab_id_to_m_name_and_id = movie_mapping.movie_new_vocab_id_to_movie_name_and_id()
-    topk_have_watched = [(m_new_vocab_id_to_m_name_and_id[str(m_new_vocab_id)], rating) for (m_new_vocab_id, rating) in topk_have_watched]
+    topk_have_watched = [(m_new_vocab_id_to_m_name_and_id[str(m_new_vocab_id)], rating) for 
+                            (m_new_vocab_id, rating) in topk_have_watched]
     return topk_have_watched
     
 
